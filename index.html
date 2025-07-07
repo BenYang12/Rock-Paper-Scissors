@@ -4,76 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel = "stylesheet" href = "style.css">
+    <script src = "script.js" defer></script>
+
 </head>
 <body>
-    <script>
+    <h1> Rock Paper Scissors</h1>
 
-        function getComputerChoice(){
-            let num = Math.floor(Math.random() * 3)
-            if (num === 0){
-                return "rock";
-            }
-            else if (num === 1){
-                return "paper";
-            }
-            else{
-                return "scissors";
-            }
-        }
-        
-        function getHumanChoice(){
-            let human_choice = window.prompt("select rock, paper, or scissors");
-            return human_choice.toLowerCase();
+    <div class = "button-container">
+        <button id = "rock" ><img src = "rock.jpeg"></button>
+        <button id = "paper"> <img src = "paper.jpeg"></button>
+        <button id = "scissors"><img src = "scissors.jpeg"></button>
+    </div>
 
-        }
-        
-        function playGame(){
-            let humanScore = 0;
-            let computerScore = 0;
+    <div id = "results">
+        <p class = "round-result"></p>
+        <p class = "score">Score: You 0 - 0 Computer</p>
+        <p class = "winner"></p>
+    </div>
 
-            function playRound(humanChoice, computerChoice){
-                humanChoice = humanChoice.toLowerCase();
-                if (humanChoice === computerChoice){
-                    console.log(`It's a tie! You both chose ${humanChoice}`);
-                }
-                else if((humanChoice === "rock" && computerChoice ==="scissors") || (humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "scissors" && computerChoice === "paper")){
-                    console.log(`You win! ${humanChoice} beats ${computerChoice}`);
-                    humanScore++;
-                }
-                else{
-                    console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
-                    computerScore++
-                }
-                console.log(`Score: You ${humanScore} - ${computerScore} Computer`);
-            }
-            console.log("--- Round 1 ---");
-            playRound(getHumanChoice(), getComputerChoice());
-
-            console.log("--- Round 2 ---");
-            playRound(getHumanChoice(), getComputerChoice());
-
-            console.log("--- Round 3 ---");
-            playRound(getHumanChoice(), getComputerChoice());
-
-            console.log("--- Round 4 ---");
-            playRound(getHumanChoice(), getComputerChoice());
-
-            console.log("--- Round 5 ---");
-            playRound(getHumanChoice(), getComputerChoice());
-
-            console.log("--- Game Over ---");
-            if (humanScore > computerScore) {
-                console.log("🎉 You win the game!");
-            } else if (computerScore > humanScore) {
-                console.log("💻 The computer wins the game!");
-            } else {
-                console.log("🤝 It's a tie!");
-            }   
-}
-
-        playGame();
-
-
-    </script>
+    <button id = "play-again">Play Again!</button>
 </body>
 </html>
